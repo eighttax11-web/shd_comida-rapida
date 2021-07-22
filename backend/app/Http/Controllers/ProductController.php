@@ -3,25 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Repositories\ProductRepository;
 
 class ProductController extends Controller
 {
-    public function index(): \Illuminate\Http\JsonResponse
-    {
-        $products = Product::all();
+    protected $product;
 
-        return response()->json($products);
+    public function __construct(ProductRepository $product)
+    {
+        $this->product = $product;
     }
 
-    public function show($id): \Illuminate\Http\JsonResponse
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        $product = Product::find($id);
-
-        if (is_object($product)) {
-            return response()->json($product);
-        }
-
-        return response()->json('Product not found', 404);
+        return $this->product->index();
     }
 }

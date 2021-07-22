@@ -18,4 +18,9 @@ class ProductController extends Controller
     {
         return $this->product->index();
     }
+
+    public function show($id): \Illuminate\Http\JsonResponse
+    {
+        return $this->product->show($id);
+    }
 }

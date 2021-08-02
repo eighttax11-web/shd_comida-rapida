@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoComponent } from './components/info/info.component';
 import { ProductsComponent } from './components/products/products.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ProductsComponent } from './components/products/products.component';
     NavbarComponent,
     HomeComponent,
     InfoComponent,
-    ProductsComponent
+    ProductsComponent,
+    ContactComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

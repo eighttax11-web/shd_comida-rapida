@@ -11,7 +11,16 @@ export class ProductsService {
 
   constructor(private _http: HttpClient) { }
 
-  
+  getProducts() {
+    return this.executeQuery<Product>(`/products`);
+  }
+
+  private executeQuery<T>(query: string) {
+    
+    query = apiUrl + query;
+
+    return this._http.get<T>(query);
+  }
 }
 
 export interface Product {
